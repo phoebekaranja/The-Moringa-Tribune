@@ -6,6 +6,8 @@ class Editor(models.Model):
     email = models.EmailField()
     def __str__(self):
         return self.first_name
+    class Meta:
+        ordering = ['first_name']
 try:
     editor = Editor.objects.get(email = 'example@gmail.com')
     print('Editor found')
