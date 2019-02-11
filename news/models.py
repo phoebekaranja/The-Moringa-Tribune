@@ -1,11 +1,10 @@
 from django.db import models
 import datetime as dt
-# ........
 @classmethod
-    def todays_news(cls):
-        today = dt.date.today()
-        news = cls.objects.filter(pub_date__date = today)
-        return news
+def todays_news(cls):
+    today = dt.date.today()
+    news = cls.objects.filter(pub_date__date = today)
+    return news
 
 class Editor(models.Model):
     first_name=models.CharField(max_length =30)
@@ -15,11 +14,10 @@ class Editor(models.Model):
 
     def __str__(self):
         return self.first_name
-    class Meta:
+class Meta:
         ordering = ['first_name']
-#
-    def save_editor(self):
-        self.save()
+def save_editor(self):
+    self.save()
 # try:
 #     editor = Editor.objects.get(email = 'example@gmail.com')
 #     print('Editor found')
@@ -36,3 +34,7 @@ class Article(models.Model):
     editor = models.ForeignKey(Editor,on_delete = models.CASCADE)
     tags = models.ManyToManyField(tags)
     pub_date = models.DateTimeField(auto_now_add=True)
+@classmethod
+def days_news(cls,date):
+  news = cls.objects.filter(pub_date__date = date)
+  return news
