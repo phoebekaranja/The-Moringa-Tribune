@@ -47,3 +47,6 @@ class Article(models.Model):
         today = dt.date.today()
         news = cls.objects.filter(pub_date__date = today)
         return news
+class NewsLetterRecipients(models.Model):
+    name = models.CharField(max_length = 30)
+    email = models.EmailField()
