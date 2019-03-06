@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap3',
     'news',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
