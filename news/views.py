@@ -4,6 +4,7 @@ from .models import Article,NewsLetterRecipients
 from .forms import NewsLetterForm
 import datetime as dt
 from .email import send_welcome_email
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def news_today(request):
@@ -51,7 +52,7 @@ def past_days_news(request, past_date):
 
     news = Article.days_news(date)
     return render(request, 'all-news/past-news.html',{"date": date,"news":news})
-
+@login_required(login_url='/accounts/login/')
 def article(request,article_id):
     try:
         article = Article.objects.get(id = article_id)
