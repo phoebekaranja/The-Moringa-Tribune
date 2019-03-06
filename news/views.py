@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse, Http404,HttpResponseRedirect
 from .models import Article,NewsLetterRecipients
-from .forms import NewsLetterForm,NewsArticleForm
+from .forms import NewsLetterForm, NewArticleForm
 import datetime as dt
 from .email import send_welcome_email
 from django.contrib.auth.decorators import login_required
@@ -72,7 +72,7 @@ def new_article(request):
 
     else:
         form = NewArticleForm()
-    return render(request, 'new_article.html', {"form": form})   
+    return render(request, 'new_article.html', {"form": form})
 # def news_today(request):
 # #........
 #     if request.method == 'POST':
