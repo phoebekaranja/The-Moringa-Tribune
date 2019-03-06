@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse, Http404
 from .models import Article
+from .forms import NewsLetterForm
 import datetime as dt
 
 # Create your views here.
@@ -47,3 +48,12 @@ def article(request,article_id):
     except DoesNotExist:
         raise Http404()
     return render(request,"all-news/article.html", {"article":article})
+def news_today(request):
+#........
+    if request.method == 'POST':
+        form = NewsLetterForm(request.POST)
+        if form.is_valid():
+            print('valid')
+    else:
+        form = NewsLetterForm()
+    return render(request, 'all-news/today-news.html', {"date": date,"news":news,"letterForm":form})
