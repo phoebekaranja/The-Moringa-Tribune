@@ -37,10 +37,10 @@ class Article(models.Model):
         return news
     title = models.CharField(max_length =60)
     post = HTMLField()
-    editor = models.ForeignKey(User,on_delete = models.CASCADE)
+    # editor = models.ForeignKey(User,on_delete = models.CASCADE)
     tags = models.ManyToManyField(tags)
     pub_date = models.DateTimeField(auto_now_add=True)
-    article_image = models.ImageField(upload_to = 'articles/',blank=True)
+    # article_image = models.ImageField(upload_to = 'article/',blank=True)
     @classmethod
     def days_news(cls,date):
         news = cls.objects.filter(pub_date__date = date)
