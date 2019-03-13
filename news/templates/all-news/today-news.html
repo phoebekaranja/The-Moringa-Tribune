@@ -22,7 +22,11 @@
     {% endfor %}
 {% load bootstrap3 %}
 <!-- Some content here-->
-
+{% endblock %}
+<!--End of the block content-->
+{% block scripts %} {{block.super}}
+  <script type="text/javascript" src="{%static 'js/newsletter.js'%}"></script>
+{% endblock %}
 <!-- Looping through news end   -->
 <div class="container-fluid">
 

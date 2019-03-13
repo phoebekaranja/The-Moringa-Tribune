@@ -9,3 +9,4 @@ urlpatterns=[
     url(r'^article/(\d+)',views.article,name ='article'),
     url(r'^new/article$', views.new_article, name='new-article')
 ]
+]
