@@ -8,5 +8,5 @@ urlpatterns=[
     url(r'^search/', views.search_results, name='search_results'),
     url(r'^article/(\d+)',views.article,name ='article'),
     url(r'^new/article$', views.new_article, name='new-article')
-]
+
 ]
